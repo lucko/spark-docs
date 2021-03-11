@@ -18,7 +18,9 @@ module.exports = {
       title: 'spark docs',
       logo: {
         alt: 'spark logo',
-        src: 'img/logo.svg'
+        src: 'img/logo.svg',
+        href: 'https://spark.lucko.me/',
+        target: '_self'
       },
       items: [],
     },
@@ -26,6 +28,7 @@ module.exports = {
       links: [],
       copyright: `Copyright © ${new Date().getFullYear()} spark contributors`,
     },
+    image: 'img/logo-512.png'
   },
 
   presets: [
@@ -38,8 +41,10 @@ module.exports = {
           editUrl: 'https://github.com/lucko/spark-docs/edit/master/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.css')
         },
+        blog: false,
+        pages: false
       },
     ],
   ],
