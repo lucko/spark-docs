@@ -1,5 +1,5 @@
 ---
-id: Commands
+id: Commands-Usage
 title: Command Usage
 ---
 
