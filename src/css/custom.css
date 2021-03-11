@@ -1,0 +1,30 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #f77669;
+  --ifm-font-family-base: 'JetBrains Mono', monospace;
+  --ifm-background-color: #1e2527 !important;
+  --ifm-navbar-background-color: #181d1f;
+}
+
+.navbar__brand {
+  background-color: #252b2d;
+  border-radius: 6px;
+  padding: 3px 5px;
+  margin: 3px 0;
+  border: 0;
+  height: 38px;
+}
+
+.navbar__title {
+  font-size: 14pt;
+  margin: 0;
+  color: #fff;
+}
