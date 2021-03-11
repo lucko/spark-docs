@@ -9,6 +9,13 @@
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #f77669;
+  --ifm-color-primary-dark: #f55748;
+  --ifm-color-primary-darker: #f44837;
+  --ifm-color-primary-darkest: #ea210c;
+  --ifm-color-primary-light: #f9958a;
+  --ifm-color-primary-lighter: #faa49b;
+  --ifm-color-primary-lightest: #fcd2cd;
+
   --ifm-font-family-base: 'JetBrains Mono', monospace;
   --ifm-background-color: #1e2527 !important;
   --ifm-navbar-background-color: #181d1f;
