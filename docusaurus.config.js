@@ -18,8 +18,7 @@ module.exports = {
       title: 'spark docs',
       logo: {
         alt: 'spark logo',
-        src: 'img/logo.svg',
-        href: 'https://spark.lucko.me/'
+        src: 'img/logo.svg'
       },
       items: [],
     },
