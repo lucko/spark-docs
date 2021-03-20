@@ -54,3 +54,15 @@ async-profiler may try to warn you that you need to do this by printing the foll
 
 > [WARN] Kernel symbols are unavailable due to restrictions. Try ...
 
+
+
+### Enabling non-safepoint debug metadata
+
+You may also need to include the `-XX:+DebugNonSafepoints` flag in your server start script to allow async-profiler to retrieve the necessary metadata from the JVM to complete sampling.
+
+Just add/merge the following two flags into your run script:
+
+```
+java -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -jar server.jar
+```
+
