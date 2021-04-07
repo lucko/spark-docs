@@ -29,7 +29,10 @@ module.exports = {
       links: [],
       copyright: `Copyright © ${new Date().getFullYear()} spark contributors`,
     },
-    image: 'https://spark.lucko.me/assets/logo-512.png'
+    image: 'https://spark.lucko.me/assets/logo-512.png',
+    prism: {
+      additionalLanguages: ['java', 'groovy', 'kotlin']
+    }
   },
 
   presets: [

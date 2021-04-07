@@ -1,0 +1,153 @@
+---
+id: Developer-API
+title: Developer API
+---
+
+The spark API allows plugin/mod developers to access information recorded by spark for use in other systems.
+
+It is recommended that developers use the API instead of accessing spark's internals directly. If the API doesn't do something you need, just ask and we can look into adding more functionality!
+
+
+
+## Importing the API
+
+The API artifact is published to the Sonatype Snapshots repository.
+
+You can import/depend on it in your project easily using Gradle or Maven. Just add the following to your buildscript or pom.
+
+##### Gradle (Groovy DSL)
+
+```groovy
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+dependencies {
+    compileOnly 'me.lucko:spark-api:0.1-SNAPSHOT'
+}
+```
+
+##### Gradle (Kotlin DSL)
+
+```kotlin
+repositories {
+    maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
+}
+
+dependencies {
+    compileOnly("me.lucko:spark-api:0.1-SNAPSHOT")
+}
+```
+
+##### Maven
+
+```xml
+<repositories>
+    <repository>
+        <id>sonatype-snapshots</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>me.lucko</groupId>
+        <artifactId>spark-api</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <scope>provided</scope>
+    </dependency>
+</dependencies>
+```
+
+
+
+## Accessing the API
+
+The main API package is [`me.lucko.spark.api`](https://github.com/lucko/spark/tree/master/spark-api/src/main/java/me/lucko/spark/api) and the main API interface is [`me.lucko.spark.api.Spark`](https://github.com/lucko/spark/blob/master/spark-api/src/main/java/me/lucko/spark/api/Spark.java).
+
+The [`Spark`](https://github.com/lucko/spark/blob/master/spark-api/src/main/java/me/lucko/spark/api/Spark.java) interface is provided as a "service" on platforms that have a ServiceManager. Alternatively, you can obtain an instance using the [`SparkProvider`](https://github.com/lucko/spark/blob/master/spark-api/src/main/java/me/lucko/spark/api/SparkProvider.java) singleton.
+
+For example, on Bukkit, you can use:
+
+```java
+RegisteredServiceProvider<Spark> provider = Bukkit.getServicesManager().getRegistration(Spark.class);
+if (provider != null) {
+    Spark spark = provider.getProvider();
+
+}
+```
+
+On all platforms, you can use:
+
+```java
+Spark spark = SparkProvider.get();
+```
+
+**Note:** the `#get` method will throw an `IllegalStateException` if spark is not loaded yet!
+
+
+
+## Using the API
+
+The spark API currently exposes a number of statistics which are recorded/calculated by spark. These can all be retrieved from the [`Spark`](https://github.com/lucko/spark/blob/master/spark-api/src/main/java/me/lucko/spark/api/Spark.java) interface.
+
+### TPS
+
+To get information about the TPS measurement according to spark's calculations...
+
+```java
+// Get the TPS statistic (will be null on platforms that don't have ticks!)
+DoubleStatistic<StatisticWindow.TicksPerSecond> tps = spark.tps();
+
+// Retrieve the average TPS in the last 10 seconds / 5 minutes
+double tpsLast10Secs = tps.poll(StatisticWindow.TicksPerSecond.SECONDS_10);
+double tpsLast5Mins = tps.poll(StatisticWindow.TicksPerSecond.MINUTES_5);
+```
+
+
+
+### MSPT
+
+To get information about the MSPT (milliseconds per tick / tick duration) measurement...
+
+```java
+// Get the MSPT statistic (will be null on platforms that don't support measurement!)
+GenericStatistic<DoubleAverageInfo, StatisticWindow.MillisPerTick> mspt = spark.mspt();
+
+// Retrieve the averages in the last minute
+DoubleAverageInfo msptLastMin = mspt.poll(StatisticWindow.MillisPerTick.MINUTES_1);
+double msptMean = msptLastMin.mean();
+double mspt95Percentile = msptLastMin.percentile95th();
+```
+
+
+
+### CPU Usage
+
+To get information about the CPU usage measurement...
+
+```java
+// Get the CPU Usage statistic
+DoubleStatistic<StatisticWindow.CpuUsage> cpuUsage = spark.cpuSystem();
+
+// Retrieve the average usage percent in the last minute
+double usagelastMin = cpuUsage.poll(StatisticWindow.CpuUsage.MINUTES_1);
+```
+
+
+
+###  GC
+
+To get information about the GC activity measurement...
+
+```java
+// Retrieve the GC activity since the server started
+Map<String, GarbageCollector> gc = spark.gc();
+
+for (GarbageCollector collector : gc.values()) {
+    String name = collector.name();
+    long frequency = collector.avgFrequency();
+    double time = collector.avgTime();
+}
+```
+
