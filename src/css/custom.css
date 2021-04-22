@@ -19,6 +19,12 @@
   --ifm-font-family-base: 'JetBrains Mono', monospace;
   --ifm-background-color: #1e2527 !important;
   --ifm-navbar-background-color: #181d1f;
+  --ifm-navbar-padding-vertical: 5px;
+  --ifm-navbar-shadow: 0 0 4px #130b00;
+}
+
+.navbar {
+  height: auto;
 }
 
 .navbar__brand {
@@ -30,8 +36,18 @@
   height: 38px;
 }
 
+.navbar--fixed-top {
+  padding: 5px 20px;
+}
+
 .navbar__title {
   font-size: 14pt;
   margin: 0;
   color: #fff;
+  font-weight: normal;
+}
+
+.navbar__logo {
+  margin-right: 0;
+  padding-right: 5px;
 }
