@@ -58,6 +58,12 @@ So, if you keep expanding the tree, following which areas have *relatively* high
 
 An example of this process is demonstrated in the [Finding lag spikes guide](guides/Finding-lag-spikes).
 
+### Using the sources (per-plugin or per-mod) view
+
+If you specifically want to look for badly performing plugins or mods, the **sources** view may be useful.
+
+Click on the `view: all` button in the top menu bar to switch view modes. In the sources view, a separate profiler tree will be shown for each plugin/mod. The tree is filtered and at the top level, shows all outgoing calls made by the source.
+
 ### Apply deobfuscation mappings
 
 The Minecraft client/server obfuscates ("scrambles, makes hard to interpret") all method and class names. This is obviously a slight problem when trying to find out what is causing a performance issue!
