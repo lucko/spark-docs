@@ -2,7 +2,7 @@
 module.exports = {
   title: 'spark docs',
   tagline: 'Documentation for spark',
-  url: 'https://spark.lucko.me/docs/',
+  url: 'https://spark.lucko.me/',
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -31,7 +31,7 @@ module.exports = {
     },
     image: 'https://spark.lucko.me/assets/logo-512.png',
     prism: {
-      additionalLanguages: ['java', 'groovy', 'kotlin']
+      additionalLanguages: ['java', 'groovy', 'kotlin', 'docker']
     }
   },
 
@@ -42,6 +42,8 @@ module.exports = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
+          sidebarCollapsible: false,
+          sidebarCollapsed: false,
           editUrl: 'https://github.com/lucko/spark-docs/edit/master/',
         },
         theme: {

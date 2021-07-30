@@ -40,7 +40,7 @@ apt-get install libstdc++6
 
 If you are using an Alpine based Java Docker image, add the following to your Dockerfile:
 
-```dockerfile
+```docker
 RUN apk add --no-cache libstdc++
 ```
 
