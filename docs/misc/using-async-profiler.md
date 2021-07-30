@@ -20,6 +20,29 @@ The async-profiler engine mode is only supported for systems with a **Linux** op
 
 However you may need to perform some extra steps to get things to work correctly.
 
+If you used a "shared" Minecraft specific host for your server, you may need to ask them to perform these steps for you.
+
+
+
+### Install libstdc++
+async-profiler depends on libstdc++. You may need to install it manually for async-profiler to function correctly.
+
+async-profiler may try to warn you that you need to do this by printing the following message in the console:
+
+> java.lang.UnsatisfiedLinkError: /tmp/spark-xxxx-libasyncProfiler.so.tmp: Error loading shared library libstdc++.so.6: No such file or directory (needed by /tmp/spark-xxxx-libasyncProfiler.so.tmp)
+
+
+To install libstdc++ on Debian/Ubuntu, run:
+
+```bash
+apt-get install libstdc++6
+```
+
+If you are using an Alpine based Java Docker image, add the following to your Dockerfile:
+
+```dockerfile
+RUN apk add --no-cache libstdc++
+```
 
 
 ### Install debug symbols
