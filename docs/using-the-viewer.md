@@ -62,7 +62,7 @@ An example of this process is demonstrated in the [Finding lag spikes guide](gui
 
 If you specifically want to look for badly performing plugins or mods, the **sources** view may be useful.
 
-Click on the `view: all` button in the top menu bar to switch view modes. In the sources view, a separate profiler tree will be shown for each plugin/mod. The tree is filtered and at the top level, shows all outgoing calls made by the source.
+Click on the `👁️` view button in the top menu bar to switch view modes. In the sources view, a separate profiler tree will be shown for each plugin/mod. The tree is filtered and at the top level, shows all outgoing calls made by the source.
 
 ### Apply deobfuscation mappings
 
@@ -82,7 +82,9 @@ When analysing your profile, you may come across a noteworthy method call which 
 
 The easiest way to do this is to "bookmark" the method.
 
-You can do this by **right-clicking** on the method call, then selecting "**Toggle bookmark**".
+You can do this by holding down the `alt` key and clicking on the method call.
+
+You can also **right-click** on the method call, then select "**Toggle bookmark**".
 
 ![](img/viewer-bookmark.png)
 
