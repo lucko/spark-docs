@@ -9,17 +9,44 @@ You can freely share this link with other people, send it to someone helping you
 
 
 
-### Interpret the profiler tree
+## Interpret the profiler tree
+
+When first presented with the profiler output, it can be a bit daunting and difficult to understand at first.
+
+This is partially because the only information spark has and can present is the underlying class/method names (i.e. the names that programmers used in the code) to describe what's going on. However, with a little bit of thinking and some common sense, you can quickly figure out what's going on.
+
+Try to persevere! There are some explainations below which will help you understand the output. :smiley:
+
+### Threads
 
 When you first open the viewer, you will be presented with a list of the **threads** which were profiled.
 
-In the case of Minecraft *servers*, the thread we are usually most interested in is the "Server thread". You can think of a thread just like an isolated unit of work within the client/server/whatever.
+You can think of a thread like a worker that's performing some specific task within the client/server/whatever. In the case of Minecraft *servers*, the thread we are usually most interested in is the "Server thread", which is the main thread responsible for running the game.
 
 ![](img/viewer-tree-thread.png)
 
+### Call Frames ("nodes")
+
+We can see three pieces of information for each call frame in the profiler tree. The *name*, the *percentage of time* taken by the frame compared to the total amount taken by the thread, and the number of milliseconds taken (only shows on hover).
+
 Threads (at the root/top of the profile) will always show `100%` next to them - this is because 100 percent of the time spent profiling the thread was, well, spent within that thread.
 
-When you **hover** over a node, the time the sampler predicted was spent executing it during the profile will be shown to thr right.
+When you **hover** over a node in the profiler tree, the time the sampler predicted was spent executing it during the profile will be shown to the right.
+
+### Some notable call frames
+
+The name of call frames can be a little confusing if you're not familiar with the Java programming language or the Minecraft server internals. Some key ones which you might not be able to guess are listed below. Most of the others can be figured out with a little common sense.
+
+| Frame                     | Description                 |
+|---------------------------|-----------------------------|
+| `java.lang.Thread.run()`  | The main entry point into a thread. The first child node of all threads will be this, just keep expanding! |
+| `java.lang.Thread.sleep()` `java.util.concurrent.locks.LockSupport.parkNanos()`  | The thread is "sleeping" a.k.a doing nothing. Most of the time this is good! It means that the server is running well and has time to wait before it needs to do anything else. See the [tick loop guide](guides/The-tick-loop) for more info. |
+| `net.minecraft.server.MinecraftServer.run()` | The root of the Minecraft server activity. |
+| `net.minecraft.server.IAsyncTaskHandler.sleepForTick()` | A bit confusing... some of this is taken up by "sleeping" (see above) but if you expand further, you may also find some tasks being executed. e.g. "MinecraftServer.executeNext()" |
+| `net.minecraft.server.PlayerConnectionUtils` | Usually this section refers to when the server processes incoming packets from the player. Expand further to see a breakdown by packet. |
+| `PluginManager.callEvent()` or similar | The server is calling an API event as a response to something happening for plugins/mods to respond to. |
+
+### Expanding the profile
 
 You can **click** on a node to view its **children**. These will be expanded out below it.
 
@@ -35,6 +62,8 @@ As explained in the [tick loop guide](guides/The-tick-loop), any time spent slee
 
 However, `MinecraftServer.tick()` is where the work happens. We can click to expand further.
 
+### Analysing the profile
+
 ![](img/viewer-tree-expand-again.png)
 
 At this stage, we can see distinct parts of the server executing and showing up in our profile.
@@ -43,12 +72,12 @@ Some key things we can see already:
 
 * `WorldServer.doTick()` - probably "ticking" the world - blocks, redstone etc?
 * `WorldServer.tickEntities()` - probably "ticking" entities - seems like a safe guess!
-* `CraftScheduler.mainThreadHeartbeat()` - this is executing plugin tasks
+* `CraftScheduler.mainThreadHeartbeat()` - this is CraftBukkit executing plugin scheduler tasks
 * ..and so on - you can usually make a good guess about what's going on!
 
 Of course, if you don't know what the method name refers to, or if more detail is needed (it usually is): you can expand the nodes more.
 
-#### How to find the cause of a performance problem
+### How to find the cause of a performance problem
 
 Now you know how to navigate the tree, the trick to finding "problematic" areas is to just follow the numbers - specifically, the **percentages** shown **next to each node**.
 
@@ -58,13 +87,13 @@ So, if you keep expanding the tree, following which areas have *relatively* high
 
 An example of this process is demonstrated in the [Finding lag spikes guide](guides/Finding-lag-spikes).
 
-### Using the sources (per-plugin or per-mod) view
+## Using the sources (per-plugin or per-mod) view
 
 If you specifically want to look for badly performing plugins or mods, the **sources** view may be useful.
 
 Click on the `👁️` view button in the top menu bar to switch view modes. In the sources view, a separate profiler tree will be shown for each plugin/mod. The tree is filtered and at the top level, shows all outgoing calls made by the source.
 
-### Apply deobfuscation mappings
+## Apply deobfuscation mappings
 
 The Minecraft client/server obfuscates ("scrambles, makes hard to interpret") all method and class names. This is obviously a slight problem when trying to find out what is causing a performance issue!
 
@@ -76,7 +105,7 @@ You can do this using the **dropdown menu** in the **top right** of the page.
 
 ![](img/viewer-deobf.png)
 
-### Bookmark a method call
+## Bookmark a method call
 
 When analysing your profile, you may come across a noteworthy method call which you want to save to refer back to later or to show to someone else.
 
@@ -92,7 +121,7 @@ You will notice the method will become highlighted red.
 
 Additionally, a special query parameter will be added to the URL in your browser window to "encode" the bookmark. If you **share** this modified link with someone else, when they open the viewer your bookmarked methods will be highlighted and automatically expanded for them too!
 
-### View as a flame graph
+## View as a flame graph
 
 Flame graphs have become a popular way to interpret profiler output.
 

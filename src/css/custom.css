@@ -26,7 +26,7 @@
   height: auto;
 }
 
-.menu, .table-of-contents, .navbar, h1, h2, h3 {
+.menu, .table-of-contents, .navbar, h1, h2, h3, h4, h5 {
   font-family: 'JetBrains Mono', monospace;
 }
 
