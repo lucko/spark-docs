@@ -14,23 +14,33 @@ The async-profiler engine is more accurate than the Java/WarmRoast engine, as it
 
 
 
-## System requirements
+## System Requirements
 
-The async-profiler engine mode is only supported for systems with a **Linux** operating system using **x86_64** architecture. (most dedicated servers, VPSes and shared hosting servers will use this!)
+The async-profiler engine mode is only supported for systems with a **Linux** operating system using **x86_64** architecture.
 
-However you may need to perform some extra steps to get things to work correctly.
+The good news is, most dedicated servers, VPSes and shared hosting servers use this!
 
-If you used a "shared" Minecraft specific host for your server, you may need to ask them to perform these steps for you.
 
+
+## Containers
+
+If you are running your server inside a container (e.g. using Pterodactyl Panel), you may need to tweak some things for the async-profiler engine to work correctly.
+
+Give it a try first, and if you run into errors, try the steps listed below.
 
 
 ### Install libstdc++
-async-profiler depends on libstdc++. You may need to install it manually for async-profiler to function correctly.
+async-profiler depends on libstdc++. You may need to install it manually if it is not already present in the image.
 
-async-profiler may try to warn you that you need to do this by printing the following message in the console:
+The following error indicates this problem:
 
 > java.lang.UnsatisfiedLinkError: /tmp/spark-xxxx-libasyncProfiler.so.tmp: Error loading shared library libstdc++.so.6: No such file or directory (needed by /tmp/spark-xxxx-libasyncProfiler.so.tmp)
 
+To install libstdc++ on Alpine, run:
+
+```bash
+apk add libstdc++
+```
 
 To install libstdc++ on Debian/Ubuntu, run:
 
@@ -38,54 +48,25 @@ To install libstdc++ on Debian/Ubuntu, run:
 apt-get install libstdc++6
 ```
 
-If you are using an Alpine based Java Docker image, add the following to your Dockerfile:
+If you are using an Alpine-based Java Docker image, add the following to your Dockerfile:
 
 ```docker
 RUN apk add --no-cache libstdc++
 ```
 
+If you are using an Debian-based Java Docker image, add the following to your Dockerfile:
 
-### Install debug symbols
+```docker
+RUN apt-get install libstdc++6
+```
 
-If you are using an OpenJDK (not Oracle) install of Java, you may need to install debug symbols to get async-profiler to work correctly.
 
-To install the OpenJDK debug symbols on Debian/Ubuntu, run:
+### Allow access to kernel perf-events
+
+async-profiler will automatically use the "itimer" mode to profile if it cannot access perf-events. This is the case for most Docker runtimes, as access to these events is restricted by default.
+
+For the vast majority of users, this is absolutely fine, however, if you want to record profiling information for native code, you'll need to set the following flag when starting the container to ensure that async-profiler has access.
 
 ```bash
-apt-get install openjdk-8-dbg  # for Java 8
-apt-get install openjdk-11-dbg  # for Java 11
+docker run --cap-add SYS_ADMIN ...
 ```
-
-async-profiler may try to warn you that you need to do this by printing the following message in the console:
-
-> [WARN] Install JVM debug symbols to improve profile accuracy
-
-
-
-### Allow access to kernel perf-events call stack capturing
-
-As of Linux 4.6, capturing kernel call stacks (async-profiler does this!) from a non-root process requires setting two runtime variables. You may also need to do this if you are running your server inside a container (e.g. Docker).
-
-The variables can be set using the `sysctl` command as follows:
-
-```bash
-sysctl kernel.perf_event_paranoid=1
-sysctl kernel.kptr_restrict=0
-```
-
-async-profiler may try to warn you that you need to do this by printing the following message in the console:
-
-> [WARN] Kernel symbols are unavailable due to restrictions. Try ...
-
-
-
-### Enabling non-safepoint debug metadata
-
-You may also need to include the `-XX:+DebugNonSafepoints` flag in your server start script to allow async-profiler to retrieve the necessary metadata from the JVM to complete sampling.
-
-Just add/merge the following two flags into your run script:
-
-```
-java -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -jar server.jar
-```
-
