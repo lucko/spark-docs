@@ -87,12 +87,6 @@ So, if you keep expanding the tree, following which areas have *relatively* high
 
 An example of this process is demonstrated in the [Finding lag spikes guide](guides/Finding-lag-spikes).
 
-## Using the sources (per-plugin or per-mod) view
-
-If you specifically want to look for badly performing plugins or mods, the **sources** view may be useful.
-
-Click on the `👁️` view button in the top menu bar to switch view modes. In the sources view, a separate profiler tree will be shown for each plugin/mod. The tree is filtered and at the top level, shows all outgoing calls made by the source.
-
 ## Apply deobfuscation mappings
 
 The Minecraft client/server obfuscates ("scrambles, makes hard to interpret") all method and class names. This is obviously a slight problem when trying to find out what is causing a performance issue!
@@ -121,11 +115,51 @@ You will notice the method will become highlighted red.
 
 Additionally, a special query parameter will be added to the URL in your browser window to "encode" the bookmark. If you **share** this modified link with someone else, when they open the viewer your bookmarked methods will be highlighted and automatically expanded for them too!
 
-## View as a flame graph
+## Views
+The profiler viewer supports a few different views (modes).
+
+You can toggle between the different views by clicking the `👁️` view button in the top controls bar.
+
+### All View
+This is the default profiler view. The shows the entire profile as an expandable tree.
+
+### Flat View
+The flat view shows a flattened representation of the profile, where the slowest 250 method calls are listed at the top level. This is a useful way to see which method calls are taking the most time overall.
+
+The view has two different **Display** modes.
+
+| Display Mode | Description |
+|--------------|-------------|
+| **Top Down** | The call tree is "normal" - expanding a node reveals the sub-methods that it calls. |
+| **Bottom Up** | The call tree is reversed - expanding a node reveals the method that called it. |
+
+The view has two different **Sort** modes.
+
+| Sort Mode | Description |
+|-----------|-------------|
+| **Total Time** | Methods are sorted according to their "total time" (the time spent executing code within the method and the time spent executing sub-calls) |
+| **Self Time** | Methods are sorted according to their "self time" (the time spent executing code within the method) |
+
+### Sources View
+
+If you specifically want to look for badly performing plugins or mods, the **sources** view may be useful.
+
+In the sources view, a separate profiler tree will be shown for each plugin/mod in the profile. The tree is filtered and at the top level, shows all outgoing calls made by the source.
+
+The view has two different **Merge** modes.
+
+| Merge Mode | Description |
+|------------|-------------|
+| **Merge** | Method calls with the same signature will be merged together, even though they may not have been invoked by the same calling method. |
+| **Separate** | Method calls that have the same signature, but that haven't been invoked by the same calling method will show separately. |
+
+## Flame Graph
 
 Flame graphs have become a popular way to interpret profiler output.
 
-The viewer makes it easy to view your profile (or a subsection of it) as a flame graph. To open the flame view, just **right-click** on a thread/method call, then select "**View as Flame Graph**".
+The viewer makes it easy to view your profile (or a subsection of it) as a flame graph.
+
+To open the flame view, either click on the Flame icon in the top controls bar, or **right-click** on a thread/method call and select "**View as Flame Graph**".
 
 ![](img/viewer-flame-open.png)
 
