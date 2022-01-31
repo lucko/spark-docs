@@ -40,7 +40,7 @@ The name of call frames can be a little confusing if you're not familiar with th
 | Frame                     | Description                 |
 |---------------------------|-----------------------------|
 | `java.lang.Thread.run()`  | The main entry point into a thread. The first child node of all threads will be this, just keep expanding! |
-| `java.lang.Thread.sleep()` `java.util.concurrent.locks.LockSupport.parkNanos()`  | The thread is "sleeping" a.k.a doing nothing. Most of the time this is good! It means that the server is running well and has time to wait before it needs to do anything else. See the [tick loop guide](guides/The-tick-loop) for more info. |
+| `java.lang.Thread.sleep()` `sun.misc.Unsafe.park()` `java.util.concurrent.locks.LockSupport.parkNanos()`  | The thread is "sleeping" a.k.a doing nothing. Most of the time this is good! It means that the server is running well and has time to wait before it needs to do anything else. See the [tick loop guide](guides/The-tick-loop) for more info. |
 | `net.minecraft.server.MinecraftServer.run()` | The root of the Minecraft server activity. |
 | `net.minecraft.server.IAsyncTaskHandler.sleepForTick()` | A bit confusing... some of this is taken up by "sleeping" (see above) but if you expand further, you may also find some tasks being executed. e.g. "MinecraftServer.executeNext()" |
 | `net.minecraft.server.PlayerConnectionUtils` | Usually this section refers to when the server processes incoming packets from the player. Expand further to see a breakdown by packet. |
