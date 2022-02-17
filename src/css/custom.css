@@ -32,8 +32,8 @@
 
 .navbar__brand {
   background-color: #252b2d;
-  border-radius: 6px;
-  padding: 3px 5px;
+  border-radius: 5px;
+  padding: 3px 5px 3px 3px;
   margin: 3px 0;
   border: 0;
   height: 38px;
@@ -44,6 +44,7 @@
 }
 
 .navbar__title {
+  padding: 0 3px;
   font-size: 14pt;
   margin: 0;
   color: #fff;
