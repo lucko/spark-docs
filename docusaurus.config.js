@@ -6,7 +6,7 @@ module.exports = {
   baseUrl: '/docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/logo-512.png',
+  favicon: 'img/logo-inverted-512.png',
   projectName: 'spark',
   scripts: [{src: 'https://plausible.luckperms.net/js/pl.js', async: true, defer: true, 'data-domain': 'spark.lucko.me'}],
 
@@ -29,7 +29,8 @@ module.exports = {
       links: [],
       copyright: `Copyright © ${new Date().getFullYear()} spark contributors`,
     },
-    image: 'https://spark.lucko.me/assets/logo-512.png',
+    image: 'https://spark.lucko.me/assets/logo-inverted-512.png',
+    metadata: [{name: 'twitter:card', content: 'summary'}],
     prism: {
       additionalLanguages: ['java', 'groovy', 'kotlin', 'docker']
     }
