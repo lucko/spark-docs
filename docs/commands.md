@@ -41,6 +41,16 @@ The `tps` subcommand prints information about the servers TPS (ticks per second)
 Requires the permission `spark` or `spark.tps`.
 
 ___
+### `/spark ping`
+The `ping` subcommand prints information about average (or specific) player ping round trip times.
+
+You can use:
+* `/spark ping` to view information about the average pings across all players.
+* `/spark ping --player <username>` to view a specific players current ping RTT.
+
+Requires the permission `spark` or `spark.ping`.
+
+___
 ### `/spark healthreport`
 The `healthreport` subcommand generates a health report for the server, including TPS, CPU, Memory and Disk Usage.
 
