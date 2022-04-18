@@ -15,6 +15,7 @@ In all cases, the source data for the metrics comes from elsewhere. If something
 | Memory Usage    | Java API ([jdk.management/OperatingSystemMXBean](https://docs.oracle.com/en/java/javase/17/docs/api/jdk.management/com/sun/management/OperatingSystemMXBean.html)) & `/proc/meminfo` (Linux only) |
 | Disk Usage      | Java API ([java.base/FileStore](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/FileStore.html)) |
 | GC              | Java API ([jdk.management/GarbageCollectorMXBean](https://docs.oracle.com/en/java/javase/17/docs/api/jdk.management/com/sun/management/GarbageCollectorMXBean.html)) |
+| Network Usage   | `/proc/net/dev` (Linux only)                            |
 | Player Ping     | Server API (via spark's `PlayerPingProvider` interface) |
 | CPU Name        | `/proc/cpuinfo` (Linux only)                            |
 

@@ -4,7 +4,7 @@
  * work well for content-centric websites.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 
 /* You can override the default Infima variables here. */
 :root {
@@ -20,6 +20,8 @@
   --ifm-navbar-background-color: #181d1f;
   --ifm-navbar-padding-vertical: 5px;
   --ifm-navbar-shadow: 0 0 4px #130b00;
+
+  --ifm-font-family-monospace: 'JetBrains Mono', monospace
 }
 
 .navbar {
@@ -28,6 +30,15 @@
 
 .menu, .table-of-contents, .navbar, h1, h2, h3, h4, h5 {
   font-family: 'JetBrains Mono', monospace;
+}
+
+.menu__link--sublist-caret::after {
+  display: none;
+}
+
+.menu__link--sublist-caret {
+  font-size: 120%;
+  font-weight: bold;
 }
 
 .navbar__brand {

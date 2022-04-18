@@ -57,7 +57,8 @@ The `healthreport` subcommand generates a health report for the server, includin
 Requires the permission `spark` or `spark.healthreport`.
 
 You can use:
-* `/spark healthreport --memory <milliseconds>` to include additional information about the JVMs memory usage
+* `/spark healthreport --memory` to include additional information about the JVMs memory usage
+* `/spark healthreport --network` to include additional information about the system network usage
 
 ___
 ### `/spark tickmonitor`

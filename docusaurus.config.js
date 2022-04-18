@@ -45,6 +45,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsible: false,
           sidebarCollapsed: false,
+          breadcrumbs: false,
           editUrl: 'https://github.com/lucko/spark-docs/edit/master/',
         },
         theme: {
