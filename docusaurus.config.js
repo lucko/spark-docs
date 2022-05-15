@@ -8,7 +8,7 @@ module.exports = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo-inverted-512.png',
   projectName: 'spark',
-  scripts: [{src: 'https://plausible.luckperms.net/js/pl.js', async: true, defer: true, 'data-domain': 'spark.lucko.me'}],
+  scripts: [{src: 'https://plausible.lucko.me/js/pl.js', async: true, defer: true, 'data-domain': 'spark.lucko.me'}],
 
   themeConfig: {
     colorMode: {
