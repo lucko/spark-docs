@@ -47,3 +47,15 @@ The default value is `true`.
     "overrideTpsCommand": true
 }
 ```
+
+### `disableResponseBroadcast`
+If spark shouldn't broadcast command output to all online administrators (players with the necessary permissions to use spark).
+
+The default value is `false`.
+
+#### Example
+```json
+{
+    "disableResponseBroadcast": false
+}
+```
