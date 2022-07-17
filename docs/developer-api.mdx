@@ -3,6 +3,9 @@ id: Developer-API
 title: Developer API
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 The spark API allows plugin/mod developers to access information recorded by spark for use in other systems.
 
 It is recommended that developers use the API instead of accessing spark's internals directly. If the API doesn't do something you need, just ask and we can look into adding more functionality!
@@ -15,31 +18,8 @@ The API artifact is published to the Sonatype Snapshots repository.
 
 You can import/depend on it in your project easily using Gradle or Maven. Just add the following to your buildscript or pom.
 
-##### Gradle (Groovy DSL)
-
-```groovy
-repositories {
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
-}
-
-dependencies {
-    compileOnly 'me.lucko:spark-api:0.1-SNAPSHOT'
-}
-```
-
-##### Gradle (Kotlin DSL)
-
-```kotlin
-repositories {
-    maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
-}
-
-dependencies {
-    compileOnly("me.lucko:spark-api:0.1-SNAPSHOT")
-}
-```
-
-##### Maven
+<Tabs>
+<TabItem value="maven" label="Maven" default>
 
 ```xml
 <repositories>
@@ -59,6 +39,34 @@ dependencies {
 </dependencies>
 ```
 
+</TabItem>
+<TabItem value="gradle-groovy" label="Gradle (Groovy DSL)">
+
+```groovy
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+dependencies {
+    compileOnly 'me.lucko:spark-api:0.1-SNAPSHOT'
+}
+```
+
+</TabItem>
+<TabItem value="gradle-kotlin" label="Gradle (Kotlin DSL)">
+
+```kotlin
+repositories {
+    maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
+}
+
+dependencies {
+    compileOnly("me.lucko:spark-api:0.1-SNAPSHOT")
+}
+```
+
+</TabItem>
+</Tabs>
 
 
 ## Accessing the API

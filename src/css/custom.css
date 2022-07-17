@@ -24,6 +24,11 @@
   --ifm-font-family-monospace: 'JetBrains Mono', monospace
 }
 
+.alert {
+  --ifm-color-info-dark: rgba(255, 255, 255, 0.1);
+  --ifm-color-info-contrast-background: rgba(255, 255, 255, 0.05) !important;
+}
+
 .navbar {
   height: auto;
 }

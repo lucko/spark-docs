@@ -3,27 +3,47 @@ id: Command-Usage
 title: Command Usage
 ---
 
-Note that `/sparkb`, `/sparkv`, and `/sparkc` must be used instead of `/spark` on BungeeCord, Velocity and Forge/Fabric client installations respectively. 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faArrowCircleDown,
+    faBook,
+    faHeartbeat,
+    faMemory,
+    faMicrochip,
+} from '@fortawesome/free-solid-svg-icons';
 
-___
+:::note
+
+`/sparkb`, `/sparkv`, and `/sparkc` must be used instead of `/spark` on BungeeCord, Velocity and Forge/Fabric client installations respectively. 
+
+:::
+
+## <FontAwesomeIcon icon={faMicrochip} /> Profiler
+
 ### `/spark profiler`
+
 The `profiler` subcommand is used to control the spark CPU profiler.
 
 Requires the permission `spark` or `spark.profiler`.
 
 For basic operation, run:
-* `/spark profiler` to start the profiler in the default operation mode.
-* `/spark profiler --stop` to stop the profiler and view the results.
-* `/spark profiler --info` to check the current status of the profiler.
+* `/spark profiler` to **start** the profiler in the default operation mode.
+* `/spark profiler --stop` to **stop** the profiler and view the results.
+* `/spark profiler --info` to check the current **status** of the profiler.
 
-There are a number of flags which can be used to customize the behaviour of the profiler.
+There are some additional flags which can be used to customize the behaviour of the profiler. You can use:
+* `/spark profiler --timeout <seconds>` to start the profiler and **automatically stop** it after x seconds.
+* `/spark profiler --thread *` to start the profiler and track **all threads**.
+
+<details>
+<summary>Advanced Usage Arguments</summary>
+<div>
 
 You can use:
 * `/spark profiler --interval <milliseconds>` to start the profiler and sample at the given interval (default is 4)
 * `/spark profiler --thread *` to start the profiler and track all threads.
 * `/spark profiler --thread <thread name>` to start the profiler and only track specific threads.
 * `/spark profiler --only-ticks-over <milliseconds>` to start the profiler, but only record samples from ticks which take longer than the given duration.
-* `/spark profiler --timeout <seconds>` to start the profiler and automatically stop it after x seconds
 * `/spark profiler --regex --thread <thread name pattern>` to start the profiler and only track threads matching the given regex.
 * `/spark profiler --combine-all` to start the profiler but combine all threads under one root node.
 * `/spark profiler --not-combined` to start the profiler but disable grouping threads from a thread pool together.
@@ -34,7 +54,13 @@ You can use:
 * `/spark profiler --ignore-sleeping` to start the profiler but ignore sleeping threads. (*deprecated*)
 * `/spark profiler --ignore-native` to start the profiler but ignore sleeping threads. (*deprecated*)
 
-___
+</div>
+</details>
+
+<br />
+
+## <FontAwesomeIcon icon={faHeartbeat} /> Health Inspection
+
 ### `/spark tps`
 The `tps` subcommand prints information about the servers TPS (ticks per second) rate and CPU usage.
 
@@ -51,14 +77,14 @@ You can use:
 Requires the permission `spark` or `spark.ping`.
 
 ___
-### `/spark healthreport`
-The `healthreport` subcommand generates a health report for the server, including TPS, CPU, Memory and Disk Usage.
+### `/spark health`
+The `health` subcommand generates a health report for the server, including TPS, CPU, Memory and Disk Usage.
 
 Requires the permission `spark` or `spark.healthreport`.
 
 You can use:
-* `/spark healthreport --memory` to include additional information about the JVMs memory usage
-* `/spark healthreport --network` to include additional information about the system network usage
+* `/spark health --memory` to include additional information about the JVMs memory usage
+* `/spark health --network` to include additional information about the system network usage
 
 ___
 ### `/spark tickmonitor`
@@ -73,7 +99,10 @@ You can use:
 * `/spark tickmonitor --threshold-tick <milliseconds>` to start the tick monitor, only reporting ticks which exceed the given duration in milliseconds.
 * `/spark tickmonitor --without-gc` to start the tick monitor, and disable reports about GC activity.
 
-___
+<br />
+
+## <FontAwesomeIcon icon={faMemory} /> Memory Inspection
+
 ### `/spark gc`
 The `gc` subcommand prints information about the servers GC (garbage collection) history.
 
