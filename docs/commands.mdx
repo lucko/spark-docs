@@ -5,7 +5,6 @@ title: Command Usage
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faArrowCircleDown,
     faBook,
     faHeartbeat,
     faMemory,
@@ -59,12 +58,16 @@ You can use:
 
 <br />
 
-## <FontAwesomeIcon icon={faHeartbeat} /> Health Inspection
+## <FontAwesomeIcon icon={faHeartbeat} /> Health
 
-### `/spark tps`
-The `tps` subcommand prints information about the servers TPS (ticks per second) rate and CPU usage.
+### `/spark health`
+The `health` subcommand generates a health report for the server, including TPS, CPU, Memory and Disk Usage.
 
-Requires the permission `spark` or `spark.tps`.
+Requires the permission `spark` or `spark.healthreport`.
+
+You can use:
+* `/spark health --memory` to include additional information about the JVMs memory usage
+* `/spark health --network` to include additional information about the system network usage
 
 ___
 ### `/spark ping`
@@ -77,14 +80,10 @@ You can use:
 Requires the permission `spark` or `spark.ping`.
 
 ___
-### `/spark health`
-The `health` subcommand generates a health report for the server, including TPS, CPU, Memory and Disk Usage.
+### `/spark tps`
+The `tps` subcommand prints information about the servers TPS (ticks per second) rate and CPU usage.
 
-Requires the permission `spark` or `spark.healthreport`.
-
-You can use:
-* `/spark health --memory` to include additional information about the JVMs memory usage
-* `/spark health --network` to include additional information about the system network usage
+Requires the permission `spark` or `spark.tps`.
 
 ___
 ### `/spark tickmonitor`
@@ -101,7 +100,7 @@ You can use:
 
 <br />
 
-## <FontAwesomeIcon icon={faMemory} /> Memory Inspection
+## <FontAwesomeIcon icon={faMemory} /> Memory
 
 ### `/spark gc`
 The `gc` subcommand prints information about the servers GC (garbage collection) history.
@@ -136,7 +135,10 @@ You can use:
 * `/spark heapdump --include-non-live` to specify that "non-live" objects (objects that are not reachable and are eligible for garbage collection) should be included. (*deprecated*)
 * `/spark heapdump --run-gc-before` to suggest that the JVM runs the garbage collector before the heap dump is generated. (*deprecated*)
 
-___
+<br />
+
+## <FontAwesomeIcon icon={faBook} /> Misc
+
 ### `/spark activity`
 The `activity` subcommand prints information about recent activity performed by spark.
 
