@@ -10,6 +10,28 @@ To change options from their default settings, you need to create the configurat
 ## Options
 Below is a list of the available configuration settings.
 
+### `backgroundProfiler`
+If background profiling is enabled.
+
+When true, spark will automatically start profiling in the background when the server/client/proxy starts up. The profile can be uploaded using the usual commands. The default value is `true`.
+
+#### Example
+```json
+{
+    "backgroundProfiler": true
+}
+```
+
+### `backgroundProfilerInterval`
+The interval that the background profiler should sample at. The default value is `10` (milliseconds).
+
+#### Example
+```json
+{
+    "backgroundProfilerInterval": 10
+}
+```
+
 ### `viewerUrl`
 The URL used when providing a link to the viewer in command outputs.
 

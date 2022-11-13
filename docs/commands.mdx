@@ -25,33 +25,34 @@ The `profiler` subcommand is used to control the spark CPU profiler.
 
 Requires the permission `spark` or `spark.profiler`.
 
+If the profiler is already running in the background, run:
+* `/spark profiler upload` to **stop** the profiler and view the results.
+* `/spark profiler cancel` to **cancel** the profiler stop it from running in the background.
+
 For basic operation, run:
-* `/spark profiler` to **start** the profiler in the default operation mode.
-* `/spark profiler --stop` to **stop** the profiler and view the results.
-* `/spark profiler --info` to check the current **status** of the profiler.
+* `/spark profiler start` to **start** the profiler in the default operation mode.
+* `/spark profiler stop` to **stop** the profiler and view the results.
+* `/spark profiler info` to check the current **status** of the profiler.
 
 There are some additional flags which can be used to customize the behaviour of the profiler. You can use:
-* `/spark profiler --timeout <seconds>` to start the profiler and **automatically stop** it after x seconds.
-* `/spark profiler --thread *` to start the profiler and track **all threads**.
+* `/spark profiler start --timeout <seconds>` to start the profiler and **automatically stop** it after x seconds.
+* `/spark profiler start --thread *` to start the profiler and track **all threads**.
 
 <details>
 <summary>Advanced Usage Arguments</summary>
 <div>
 
 You can use:
-* `/spark profiler --interval <milliseconds>` to start the profiler and sample at the given interval (default is 4)
-* `/spark profiler --thread *` to start the profiler and track all threads.
-* `/spark profiler --thread <thread name>` to start the profiler and only track specific threads.
-* `/spark profiler --only-ticks-over <milliseconds>` to start the profiler, but only record samples from ticks which take longer than the given duration.
-* `/spark profiler --regex --thread <thread name pattern>` to start the profiler and only track threads matching the given regex.
-* `/spark profiler --combine-all` to start the profiler but combine all threads under one root node.
-* `/spark profiler --not-combined` to start the profiler but disable grouping threads from a thread pool together.
-* `/spark profiler --force-java-sampler` to start the profiler and force usage of the Java sampler, instead of the async one.
-* `/spark profiler --stop --comment <comment>` to stop the profiler and include the specified comment in the viewer.
-* `/spark profiler --stop --order-by-time` to stop the profiler and order the threads in the viewer by time instead of alphabetically.
-* `/spark profiler --stop --separate-parent-calls` to stop the profiler and separate calls in the viewer if they were invoked by a different parent method. (*deprecated*)
-* `/spark profiler --ignore-sleeping` to start the profiler but ignore sleeping threads. (*deprecated*)
-* `/spark profiler --ignore-native` to start the profiler but ignore sleeping threads. (*deprecated*)
+* `/spark profiler start --interval <milliseconds>` to start the profiler and sample at the given interval (default is 4)
+* `/spark profiler start --thread *` to start the profiler and track all threads.
+* `/spark profiler start --thread <thread name>` to start the profiler and only track specific threads.
+* `/spark profiler start --only-ticks-over <milliseconds>` to start the profiler, but only record samples from ticks which take longer than the given duration.
+* `/spark profiler start --regex --thread <thread name pattern>` to start the profiler and only track threads matching the given regex.
+* `/spark profiler start --combine-all` to start the profiler but combine all threads under one root node.
+* `/spark profiler start --not-combined` to start the profiler but disable grouping threads from a thread pool together.
+* `/spark profiler start --force-java-sampler` to start the profiler and force usage of the Java sampler, instead of the async one.
+* `/spark profiler stop --comment <comment>` to stop the profiler and include the specified comment in the viewer.
+* `/spark profiler stop --separate-parent-calls` to stop the profiler and separate calls in the viewer if they were invoked by a different parent method. (*deprecated*)
 
 </div>
 </details>
