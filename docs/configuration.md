@@ -32,6 +32,18 @@ The interval that the background profiler should sample at. The default value is
 }
 ```
 
+### `backgroundProfilerEngine`
+The engine that the background profiler should use.
+
+The default value is `"async"`, but `"java"` is also supported.
+
+#### Example
+```json
+{
+    "backgroundProfilerEngine": "async"
+}
+```
+
 ### `viewerUrl`
 The URL used when providing a link to the viewer in command outputs.
 
