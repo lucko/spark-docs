@@ -45,7 +45,7 @@ apk add libstdc++
 To install libstdc++ on Debian/Ubuntu, run:
 
 ```bash
-apt-get install libstdc++6
+apt install libstdc++6
 ```
 
 If you are using an Alpine-based Java Docker image, add the following to your Dockerfile:
@@ -70,3 +70,20 @@ For the vast majority of users, this is absolutely fine, however, if you want to
 ```bash
 docker run --cap-add SYS_ADMIN ...
 ```
+
+
+### Install Hotspot debug symbols
+
+The allocation profiler mode requires Hotspot debug symbols to be installed. On modern JVMs (Java 11+), they should be available by default.
+
+If they are not, you should be able to install the following packages using your OS package manager:
+
+* `openjdk-8-dbg` or 
+* `openjdk-11-dbg`
+
+e.g. on Debian/Ubuntu
+```bash
+apt install openjdk-11-dbg
+```
+
+Install information for other distros can be found [here](https://github.com/jvm-profiling-tools/async-profiler#installing-debug-symbols).
