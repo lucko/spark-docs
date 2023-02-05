@@ -61,12 +61,24 @@ The default value is [`"https://spark.lucko.me/"`](https://spark.lucko.me/).
 ### `bytebinUrl`
 The URL for the bytebin instance which profiles & heap dump summaries should be uploaded to. The URL should end with a `/`.
 
-The default value is [`"https://bytebin.lucko.me/"`](https://bytebin.lucko.me/).
+The default value is `"https://spark-usercontent.lucko.me/"`.
 
 #### Example
 ```json
 {
-    "bytebinUrl": "https://bytebin.lucko.me/"
+    "bytebinUrl": "https://spark-usercontent.lucko.me/"
+}
+```
+
+### `bytesocksUrl`
+The hostname for the bytesocks instance which should be used for communicating with the spark viewer.
+
+The default value is `"spark-usersockets.lucko.me"`.
+
+#### Example
+```json
+{
+    "bytesocksUrl": "spark-usersockets.lucko.me"
 }
 ```
 
