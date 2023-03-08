@@ -32,7 +32,7 @@ module.exports = {
     image: 'https://spark.lucko.me/assets/logo-inverted-512.png',
     metadata: [{name: 'twitter:card', content: 'summary'}],
     prism: {
-      additionalLanguages: ['java', 'groovy', 'kotlin', 'docker']
+      additionalLanguages: ['java', 'groovy', 'kotlin', 'docker', 'http']
     }
   },
 
