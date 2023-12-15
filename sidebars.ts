@@ -1,4 +1,6 @@
-module.exports = {
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
+
+const sidebars: SidebarsConfig = {
   sparkSidebar: {
     'spark': ['Home', 'Installation', 'Command-Usage', 'Using-the-viewer', 'Developer-API', 'Configuration'],
     'spark guides': ['guides/Finding-lag-spikes', 'guides/The-tick-loop', 'guides/TPS-and-MSPT'],
@@ -6,3 +8,4 @@ module.exports = {
   },
 };
 
+export default sidebars;
