@@ -57,6 +57,7 @@ You can use:
 * `/spark profiler start --alloc --interval <bytes>` to start the memory allocation profiler and sample at the given rate in bytes (default is `524287` aka *512 KB*)
 * `/spark profiler stop --comment <comment>` to stop the profiler and include the specified comment in the viewer.
 * `/spark profiler stop --separate-parent-calls` to stop the profiler and separate calls in the viewer if they were invoked by a different parent method. (*deprecated*)
+* `/spark profiler stop --save-to-file` to save profile to file under the config directory instead of uploading it.
 
 </div>
 </details>
