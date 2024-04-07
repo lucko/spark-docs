@@ -33,18 +33,15 @@ Threads (at the root/top of the profile) will always show `100%` next to them - 
 
 When you **hover** over a node in the profiler tree, the time the sampler predicted was spent executing it during the profile will be shown to the right.
 
-### Some notable call frames
+### Info points
 
-The name of call frames can be a little confusing if you're not familiar with the Java programming language or the Minecraft server internals. Some key ones which you might not be able to guess are listed below. Most of the others can be figured out with a little common sense.
+Some well-known/notable call frames display with an **ⓘ info point** symbol next to them.
 
-| Frame                     | Description                 |
-|---------------------------|-----------------------------|
-| `java.lang.Thread.run()`  | The main entry point into a thread. The first child node of all threads will be this, just keep expanding! |
-| `java.lang.Thread.sleep()` `sun.misc.Unsafe.park()` `java.util.concurrent.locks.LockSupport.parkNanos()`  | The thread is "sleeping" a.k.a doing nothing. Most of the time this is good! It means that the server is running well and has time to wait before it needs to do anything else. See the [tick loop guide](guides/The-tick-loop) for more info. |
-| `net.minecraft.server.MinecraftServer.run()` | The root of the Minecraft server activity. |
-| `net.minecraft.server.IAsyncTaskHandler.sleepForTick()` | A bit confusing... some of this is taken up by "sleeping" (see above) but if you expand further, you may also find some tasks being executed. e.g. "MinecraftServer.executeNext()" |
-| `net.minecraft.server.PlayerConnectionUtils` | Usually this section refers to when the server processes incoming packets from the player. Expand further to see a breakdown by packet. |
-| `PluginManager.callEvent()` or similar | The server is calling an API event as a response to something happening for plugins/mods to respond to. |
+If you hover over the symbol, the viewer will display some extra information about what the call frame relates to.
+
+![](img/viewer-infopoint.png)
+
+These descriptions are open-source (can be quite easily edited/changed/improved by community members!), so if you notice anything that looks incorrect or think there is a thread/method call that deserves an extra description, please consider [contributing it](misc/Info-points)! :sunglasses:
 
 ### Expanding the profile
 
