@@ -56,7 +56,7 @@ In the example case shown above:
 
 ## Ticks in spark profiles
 
-You can clearly idenfify the tick loop in spark profiles, it's usually visible right near the top!
+You can clearly identify the tick loop in spark profiles, it's usually visible right near the top!
 
 ![](../img/ticks-in-profiler.png)
 
