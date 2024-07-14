@@ -14,8 +14,8 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "3.0.1",
-    "@docusaurus/preset-classic": "3.0.1",
+    "@docusaurus/core": "^3.4.0",
+    "@docusaurus/preset-classic": "^3.4.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
@@ -27,9 +27,9 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.0.1",
-    "@docusaurus/tsconfig": "3.0.1",
-    "@docusaurus/types": "3.0.1",
+    "@docusaurus/module-type-aliases": "^3.4.0",
+    "@docusaurus/tsconfig": "^3.4.0",
+    "@docusaurus/types": "^3.4.0",
     "typescript": "~5.2.2"
   },
   "browserslist": {
