@@ -17,9 +17,12 @@ You will be able to control spark with the `/spark` command.
 
 You may need to grant yourself the `spark` permission, or ensure your user is a server operator first.
 
-:::tip
+:::note
 
-You may also need to [perform some extra steps](misc/Using-async-profiler#system-requirements) for the `async-profiler` profiler engine mode to work correctly. 
+If you are running [Paper](https://papermc.io/software/paper) 1.21 or newer, spark is **already bundled as part of the server** - no need to install the plugin jar!
+
+To override the Paper-bundled version of spark with the spark plugin, you need to append `-Dpaper.preferSparkPlugin=true` to your server startup arguments.
+For more information, please see the [Paper documentation](https://docs.papermc.io/paper/profiling).
 
 :::
 
@@ -40,12 +43,6 @@ spark will load the next time your proxy (re)starts.
 You will be able to control spark with the `/sparkb` (BungeeCord) or `/sparkv` (Velocity) commands.
 
 You may need to grant yourself the `spark` permission first.
-
-:::tip
-
-You may also need to [perform some extra steps](misc/Using-async-profiler#system-requirements) for the `async-profiler` profiler engine mode to work correctly. 
-
-:::
 
 </TabItem>
 </Tabs>
