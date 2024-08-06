@@ -28,7 +28,7 @@ Aikar's [timings](https://github.com/aikar/timings) system (built into Spigot an
 
 Timings can do the following things that spark does not:
 
-* Count the number of times certain things (events, entity ticking, etc) occur within the recorded period
+* Count the number of times certain things (events, entity ticking, etc.) occur within the recorded period
 * Display output in a way that is more easily understandable by server admins unfamiliar with reading profiler data
 * Break down server activity by "friendly" descriptions of the nature of the work being performed
 

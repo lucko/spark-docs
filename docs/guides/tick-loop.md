@@ -51,7 +51,7 @@ You can also see where the **TPS** (ticks per second) and **MSPT** (milliseconds
 
 In the example case shown above:
 
-* spark would report the TPS as **17**, because only 17 ticks were able to be processed in the second
+* spark would report the TPS as **17**, because only 17 ticks were processed in the second
 * spark would report a minimum MSPT of **~20ms** (good!) but a maximum MSPT of **~80ms** (over 50ms, bad!)
 
 ## Ticks in spark profiles

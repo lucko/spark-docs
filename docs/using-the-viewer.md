@@ -3,7 +3,7 @@ id: Using-the-viewer
 title: Using the viewer
 ---
 
-Once you have created a profile using the [`/spark profiler`](Command-Usage#spark-profiler) command, your profile will be automatically uploaded to the viewer and you will be presented with a link.
+Once you have created a profile using the [`/spark profiler`](Command-Usage#spark-profiler) command, your profile will be automatically uploaded to the viewer, and you will be presented with a link.
 
 You can freely share this link with other people, send it to someone helping you or to a plugin developer to point out a problem!
 
@@ -15,7 +15,7 @@ When first presented with the profiler output, it can be a bit daunting and diff
 
 This is partially because the only information spark has and can present is the underlying class/method names (i.e. the names that programmers used in the code) to describe what's going on. However, with a little bit of thinking and some common sense, you can quickly figure out what's going on.
 
-Try to persevere! There are some explainations below which will help you understand the output. :smiley:
+Try to persevere! There are some explanations below which will help you understand the output. :smiley:
 
 ### Threads
 
@@ -67,10 +67,10 @@ At this stage, we can see distinct parts of the server executing and showing up 
 
 Some key things we can see already:
 
-* `WorldServer.doTick()` - probably "ticking" the world - blocks, redstone etc?
+* `WorldServer.doTick()` - probably "ticking" the world - blocks, redstone, etc.
 * `WorldServer.tickEntities()` - probably "ticking" entities - seems like a safe guess!
 * `CraftScheduler.mainThreadHeartbeat()` - this is CraftBukkit executing plugin scheduler tasks
-* ..and so on - you can usually make a good guess about what's going on!
+* ... and so on - you can usually make a good guess about what's going on!
 
 Of course, if you don't know what the method name refers to, or if more detail is needed (it usually is): you can expand the nodes more.
 

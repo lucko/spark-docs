@@ -20,9 +20,9 @@ In order to access the instrumentation API, spark uses the [byte-buddy-agent](ht
 
 ### I am using Java 21, what should I do?
 
-spark will gracefully fallback to using a different (albeit less effective method) to lookup classes if the intrumentation agent is not available or fails to load.
+spark will gracefully fall back to using a different (albeit less effective method) to lookup classes if the instrumentation agent is not available or fails to load.
 
-For this reason, it is recommended that Java 21 users ignore the error, or follow the instructions below to explitly enable dynamic agent loading.
+For this reason, it is recommended that Java 21 users ignore the error, or follow the instructions below to explicitly enable dynamic agent loading.
 
 
 ### I am using Java 22, what should I do?

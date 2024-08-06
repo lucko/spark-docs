@@ -54,7 +54,7 @@ If you are using an Alpine-based Java Docker image, add the following to your Do
 RUN apk add --no-cache libstdc++
 ```
 
-If you are using an Debian-based Java Docker image, add the following to your Dockerfile:
+If you are using a Debian-based Java Docker image, add the following to your Dockerfile:
 
 ```docker
 RUN apt-get install libstdc++6

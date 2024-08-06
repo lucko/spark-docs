@@ -7,13 +7,13 @@ Lag spikes occur when a small number of ticks (or sometimes just one tick) takes
 
 This can either happen quite frequently, e.g. 1 in every 20 ticks, or rarely, e.g. once every minute. They're usually related to player behaviour.
 
-Finding the cause of lag spikes just from looking at normal profiling data can be tricky, because the data is averaged. All of the other samples will "cancel out" the spike, and mask their impact.
+Finding the cause of lag spikes just from looking at normal profiling data can be tricky, because the data is averaged. All the other samples will "cancel out" the spike, and mask their impact.
 
-Luckily, spark has two useful tools to workaround this.
+Luckily, spark has two useful tools to work around this.
 
 ### Step 1: Use `/spark tickmonitor` to detect the lag spike
 
-In order to identify the cause of the lag spike in a profiling report, we need to be able to separate the "spike" tick from all of the others.
+In order to identify the cause of the lag spike in a profiling report, we need to be able to separate the "spike" tick from all the others.
 
 We can use the [`/spark tickmonitor`](../Command-Usage#spark-tickmonitor) command to do this.
 
@@ -44,7 +44,7 @@ As you can see, the ticks when the WorldEdit action was executing saw increases 
 
 ### Step 2: Use `/spark profiler` with `--only-ticks-over` to find the cause
 
-The [`--only-ticks-over`](../Command-Usage#spark-profiler) option means that spark will only profile game ticks that last longer than the given threshold. This filters out all of the "normal" game-stuff and just leaves the laggy ticks to worry about.
+The [`--only-ticks-over`](../Command-Usage#spark-profiler) option means that spark will only profile game ticks that last longer than the given threshold. This filters out all the "normal" game-stuff and just leaves the laggy ticks to worry about.
 
 You can use Step 1 to determine a good threshold value, I recommend using a value between 50 and 100 - but it should always be less than the duration taken by "laggy" ticks.
 

@@ -139,7 +139,7 @@ To get information about the CPU usage measurement...
 DoubleStatistic<StatisticWindow.CpuUsage> cpuUsage = spark.cpuSystem();
 
 // Retrieve the average usage percent in the last minute
-double usagelastMin = cpuUsage.poll(StatisticWindow.CpuUsage.MINUTES_1);
+double usageLastMin = cpuUsage.poll(StatisticWindow.CpuUsage.MINUTES_1);
 ```
 
 

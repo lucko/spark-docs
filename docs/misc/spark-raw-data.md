@@ -19,6 +19,7 @@ You should get some JSON back that looks like:
 
 ```json
 {
+  "type": "sampler",
   "metadata": {
     "user": {
       "type": 1,
@@ -62,7 +63,7 @@ If this isn't feasible, you can also append `&full=true` to the URL and get **ev
 The storage service used by spark is called [bytebin](https://github.com/lucko/bytebin).   
 The specific instance used by spark is: https://spark-usercontent.lucko.me/
 
-To obtain the raw data for a given profile (e.g. `https://spark.lucko.me/abc123`), send a HTTP GET request to the user content endpoint:
+To obtain the raw data for a given profile (e.g. `https://spark.lucko.me/abc123`), send an HTTP GET request to the user content endpoint:
 
 ```http
 GET https://spark-usercontent.lucko.me/abc123
@@ -78,9 +79,10 @@ Cache-Control: public, max-age=604800, no-transform, immutable
 <body>
 ```
 
-There are currently two content types used by spark:
+There are currently three content types used by spark:
 * `application/x-spark-sampler` - sampler data
 * `application/x-spark-heap` - heap data
+* `application/x-spark-health` - health report
 
 You should then use the sampler or heap schema to parse the raw data, depending on what one you get back.
 
@@ -95,6 +97,6 @@ There are two versions of the schema (although they can both parse the same data
 
 ### Example code
 
-Here is a simple CLI tool written with NodeJS which illustrates how the raw data can be parsed: https://github.com/lucko/spark2json
+Here is a simple CLI tool written with Node.js which illustrates how the raw data can be parsed: https://github.com/lucko/spark2json
 
 (this is actually the code that powers the JSON endpoint above :stuck_out_tongue:)

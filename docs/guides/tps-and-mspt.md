@@ -13,7 +13,7 @@ The TPS (ticks per second) metric reports how many ticks *on average* are being 
 
 For a normal, lag free experience, the magic number is **20** ticks per second.
 
-To achieve this, on average, each tick needs to last 50 milliseconds or less.
+To achieve this, on average, each tick needs to last 50 milliseconds or fewer.
 
 ![](../img/ticks-lagging-breakdown.png)
 
@@ -24,7 +24,7 @@ In this example, some ticks took longer than 50 milliseconds, and only 16 ticks 
 
 The MSPT (milliseconds per tick) metric reports how many milliseconds *on average* is taken by the game to process each tick.
 
-For a normal, lag free experience, the magic number is **50 or less** milliseconds per tick.
+For a normal, lag free experience, the magic number is **50 or fewer** milliseconds per tick.
 
 ![](../img/ticks-lagging-breakdown.png)
 
@@ -35,7 +35,7 @@ The "slowest" tick took 100 milliseconds, so spark would report this as the "max
 
 spark also calculates other values using this data: the median value and the 95th percentile.
 
-#### As command output..
+#### As command output
 
 This what the numbers in the `/spark tps` command mean. 😎
 

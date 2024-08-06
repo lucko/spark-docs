@@ -21,6 +21,6 @@ In all cases, the source data for the metrics comes from elsewhere. If something
 | OS name and version | `/etc/os-release` on Linux, `wmic os` on Windows        |
 
 ### Containers and Docker
-Occasionally, we see some metrics (mostly CPU/Memory Usage) being misreported when the server (and by extension spark) is running inside a container (Pterodactyl, etc). 
+Occasionally, we see some metrics (mostly CPU/Memory Usage) being misreported when the server (and by extension spark) is running inside a container (Pterodactyl, etc.). 
 
 There's not much spark can do about this. As you can see above, spark just uses the standard Java and OS APIs to obtain raw metrics data. If it's not accurate, then this is either a problem with your setup or a Java/Docker/OS bug.
