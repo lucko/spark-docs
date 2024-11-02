@@ -44,20 +44,24 @@ There are some additional flags which can be used to customize the behaviour of 
 <summary>Advanced Usage Arguments</summary>
 <div>
 
-You can use:
+#### Execution Profiler
+
 * `/spark profiler start --interval <milliseconds>` to start the profiler and sample at the given interval (default is 4)
 * `/spark profiler start --thread *` to start the profiler and track all threads.
 * `/spark profiler start --thread <thread name>` to start the profiler and only track specific threads.
+* `/spark profiler start --thread <thread name pattern> --regex` to start the profiler and only track threads matching the given regex.
 * `/spark profiler start --only-ticks-over <milliseconds>` to start the profiler, but only record samples from ticks which take longer than the given duration.
-* `/spark profiler start --regex --thread <thread name pattern>` to start the profiler and only track threads matching the given regex.
 * `/spark profiler start --combine-all` to start the profiler but combine all threads under one root node.
 * `/spark profiler start --not-combined` to start the profiler but disable grouping threads from a thread pool together.
+* `/spark profiler start --ignore-sleeping` to start the profiler, but only record samples from threads that aren't in a 'sleeping' state.
 * `/spark profiler start --force-java-sampler` to start the profiler and force usage of the Java sampler, instead of the async one.
+* `/spark profiler stop --comment <comment>` to stop the profiler and include the specified comment in the viewer.
+* `/spark profiler stop --save-to-file` to save profile to file under the config directory instead of uploading it.
+
+#### Allocation Profiler
+
 * `/spark profiler start --alloc --alloc-live-only` to start the memory allocation profiler, only retaining stats for objects that haven't been garbage collected by the end of the profile
 * `/spark profiler start --alloc --interval <bytes>` to start the memory allocation profiler and sample at the given rate in bytes (default is `524287` aka *512 KB*)
-* `/spark profiler stop --comment <comment>` to stop the profiler and include the specified comment in the viewer.
-* `/spark profiler stop --separate-parent-calls` to stop the profiler and separate calls in the viewer if they were invoked by a different parent method. (*deprecated*)
-* `/spark profiler stop --save-to-file` to save profile to file under the config directory instead of uploading it.
 
 </div>
 </details>
