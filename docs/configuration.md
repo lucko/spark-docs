@@ -70,7 +70,7 @@ The default value is `"https://spark-usercontent.lucko.me/"`.
 }
 ```
 
-### `bytesocksUrl`
+### `bytesocksHost`
 The hostname for the bytesocks instance which should be used for communicating with the spark viewer.
 
 The default value is `"spark-usersockets.lucko.me"`.
@@ -78,7 +78,7 @@ The default value is `"spark-usersockets.lucko.me"`.
 #### Example
 ```json
 {
-    "bytesocksUrl": "spark-usersockets.lucko.me"
+    "bytesocksHost": "spark-usersockets.lucko.me"
 }
 ```
 
