@@ -16,9 +16,9 @@ The async-profiler engine is more accurate than the Java/WarmRoast engine, as it
 
 ## System Requirements
 
-The async-profiler engine mode is only supported for systems with a **Linux** operating system using **x86_64** architecture.
+The async-profiler engine mode is supported for systems with a **Linux** or **macOS** operating system using **x86_64** (amd64) or **aarch64** (arm64) architecture.
 
-The good news is, most dedicated servers, VPSes and shared hosting servers use this!
+The good news is, most dedicated servers, VPSes and shared hosting servers use one of these!
 
 
 
