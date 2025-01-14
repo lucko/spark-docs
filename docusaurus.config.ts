@@ -70,7 +70,7 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.oneDark,
-      additionalLanguages: ['json', 'java', 'groovy', 'kotlin', 'docker', 'http']
+      additionalLanguages: ['json', 'java', 'groovy', 'kotlin', 'docker', 'http', 'bash']
     },
     metadata: [{name: 'twitter:card', content: 'summary'}],
   } satisfies Preset.ThemeConfig,

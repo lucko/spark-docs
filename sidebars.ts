@@ -9,6 +9,7 @@ const sidebars: SidebarsConfig = {
       'Using-the-viewer',
       'Developer-API',
       'Configuration',
+      'Standalone-Agent',
     ],
     'spark guides': [
       'guides/Finding-lag-spikes',

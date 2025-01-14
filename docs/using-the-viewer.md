@@ -5,7 +5,7 @@ title: Using the viewer
 
 Once you have created a profile using the [`/spark profiler`](Command-Usage#spark-profiler) command, your profile will be automatically uploaded to the viewer, and you will be presented with a link.
 
-You can freely share this link with other people, send it to someone helping you or to a plugin developer to point out a problem!
+You can freely share this link with other people, send it to someone helping you or to a plugin/mod developer to point out a problem!
 
 
 
