@@ -27,7 +27,7 @@ java -javaagent:spark-x.y.z-standalone-agent.jar -jar application.jar [applicati
 
 You can also specify the port the agent should listen on by adding the `port` argument. For example:
 ```bash
-java -javaagent:spark-x.y.z-standalone-agent.jar=port:2222 -jar application.jar [application args]
+java -javaagent:spark-x.y.z-standalone-agent.jar=port=2222 -jar application.jar [application args]
 ```
 
 ![](img/standalone-attach-startup.png)
