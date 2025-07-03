@@ -24,8 +24,8 @@ You can import/depend on it in your project easily using Gradle or Maven. Just a
 ```xml
 <repositories>
     <repository>
-        <id>sonatype-snapshots</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        <id>luck-repo</id>
+        <url>https://repo.lucko.me/</url>
     </repository>
 </repositories>
 
@@ -44,7 +44,13 @@ You can import/depend on it in your project easily using Gradle or Maven. Just a
 
 ```groovy
 repositories {
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven {
+        name 'luck-repo'
+        url 'https://repo.lucko.me/'
+        content {
+            includeModule 'me.lucko', 'spark-api'
+        }
+    }
 }
 
 dependencies {
@@ -57,7 +63,13 @@ dependencies {
 
 ```kotlin
 repositories {
-    maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
+    maven {
+        name = "luck-repo"
+        url = uri("https://repo.lucko.me/")
+        content {
+            includeModule("me.lucko", "spark-api")
+        }
+    }
 }
 
 dependencies {
