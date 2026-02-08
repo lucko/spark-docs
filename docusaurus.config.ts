@@ -9,10 +9,7 @@ const config: Config = {
 
   url: 'https://spark.lucko.me/',
   baseUrl: '/docs/',
-
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-
   projectName: 'spark',
 
   i18n: {
