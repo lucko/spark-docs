@@ -8,6 +8,11 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-font-family-monospace: 'JetBrains Mono', monospace;
+  --ifm-navbar-padding-vertical: 5px;
+}
+
+[data-theme='dark'] {
   --ifm-color-primary: #f77669;
   --ifm-color-primary-dark: #f55748;
   --ifm-color-primary-darker: #f44837;
@@ -18,13 +23,24 @@
 
   --ifm-background-color: #1e2527 !important;
   --ifm-navbar-background-color: #181d1f;
-  --ifm-navbar-padding-vertical: 5px;
   --ifm-navbar-shadow: 0 0 4px #130b00;
-
-  --ifm-font-family-monospace: 'JetBrains Mono', monospace
 }
 
-.alert {
+[data-theme='light'] {
+  --ifm-color-primary: #d84539;
+  --ifm-color-primary-dark: #cd3528;
+  --ifm-color-primary-darker: #c23226;
+  --ifm-color-primary-darkest: #a0291f;
+  --ifm-color-primary-light: #dc5a50;
+  --ifm-color-primary-lighter: #df655b;
+  --ifm-color-primary-lightest: #e5857d;
+
+  --ifm-background-color: #ffffff !important;
+  --ifm-navbar-background-color: #f0f0f0;
+  --ifm-navbar-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .alert {
   --ifm-color-info-dark: rgba(255, 255, 255, 0.1);
   --ifm-color-info-contrast-background: rgba(255, 255, 255, 0.05) !important;
 }
@@ -46,8 +62,15 @@
   font-weight: bold;
 }
 
-.navbar__brand {
+[data-theme='dark'] .navbar__brand {
   background-color: #252b2d;
+}
+
+[data-theme='light'] .navbar__brand {
+  background-color: #f5f5f5;
+}
+
+.navbar__brand {
   border-radius: 5px;
   padding: 3px 5px 3px 3px;
   margin: 3px 0;
@@ -59,11 +82,18 @@
   padding: 5px 20px;
 }
 
+[data-theme='dark'] .navbar__title {
+  color: #fff;
+}
+
+[data-theme='light'] .navbar__title {
+  color: #1a1a1a;
+}
+
 .navbar__title {
   padding: 0 3px;
   font-size: 14pt;
   margin: 0;
-  color: #fff;
   font-weight: normal;
 }
 

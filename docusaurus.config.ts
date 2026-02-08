@@ -51,14 +51,14 @@ const config: Config = {
   themeConfig: {
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: true,
     },
     image: 'https://spark.lucko.me/assets/logo-inverted-512.png',
     navbar: {
       title: 'spark docs',
       logo: {
         alt: 'spark logo',
-        src: 'img/logo.svg',
+        srcDark: 'img/logo.svg',
+        src: 'img/logo-inverted.svg',
         href: 'https://spark.lucko.me/',
         target: '_self'
       },
