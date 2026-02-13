@@ -18,7 +18,7 @@ const config: Config = {
   },
 
   scripts: [{
-    src: 'https://plausible.lucko.me/js/pl.js',
+    src: 'https://pl.lucko.me/js/pl.js',
     async: true,
     defer: true,
     'data-domain': 'spark.lucko.me'
