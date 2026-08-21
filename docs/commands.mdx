@@ -73,12 +73,16 @@ There are some additional flags which can be used to customize the behaviour of 
 ### `/spark health`
 The `health` subcommand generates a health report for the server, including TPS, CPU, Memory and Disk Usage.
 
-Requires the permission `spark` or `spark.healthreport`.
+Requires the permission `spark` or `spark.health`.
 
-You can use:
-* `/spark health --upload` to upload the health report to the spark viewer and return a shareable link
-* `/spark health --memory` to include additional information about the JVMs memory usage
-* `/spark health --network` to include additional information about the system network usage
+To generate a health report and open it in the viewer, you can use:
+* `/spark health` to open the report in a "live dashboard" mode, where the data will automatically update every 10 seconds.
+* `/spark health upload` to upload a static health report which does not automatically update.
+
+To generate a health report and print it to the console, you can use:
+* `/spark health show` for a basic report.
+* `/spark health show --memory` to include additional information about the JVMs memory usage.
+* `/spark health show --network` to include additional information about the system network usage.
 
 ___
 ### `/spark ping`
