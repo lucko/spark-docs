@@ -24,7 +24,11 @@ const sidebars: SidebarsConfig = {
       'misc/Placeholders',
       'misc/Info-points',
       'misc/Credits',
-    ]
+    ],
+    'spark legal': [
+      'legal/Terms',
+      'legal/Privacy',
+    ],
   },
 };
 
