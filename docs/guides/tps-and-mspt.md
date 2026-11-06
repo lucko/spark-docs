@@ -37,8 +37,8 @@ spark also calculates other values using this data: the median value and the 95t
 
 #### As command output
 
-This what the numbers in the `/spark tps` command mean. 😎
+This is what the numbers in the `/spark tps` command mean. 😎
 
 ![](../img/tps-and-mspt.png)
 
-spark will automatically highlight the values *green*, *amber* or *red* depending on good/bad they reflect the server performance to be.
+Spark will automatically highlight the values *green*, *amber* or *red* depending on good/bad they reflect the server performance to be.
